@@ -1,0 +1,18 @@
+<h1><%= @blogger.name %></h1>
+
+<p>Age: <%=@blogger.age %></p>
+<p>Bio: <%= @blogger.bio %></p>
+
+<p>I have a total of <%= @blogger.total_likes %> likes for all my blogs.</p>
+<% if @blogger.posts.any? %>
+  <p>My Featured Blog Post: <%= link_to @blogger.featured_post.destination.name, post_path(@blogger.featured_post.destination) %></p>
+  <p>My Top 5 Destinations:<br>
+      <ol>
+        <% @blogger.last_five_posts.each do |dest| %>
+          <li><%= dest.destination.name %></li>
+        <% end %>
+      </ol>
+<% else %>
+  <p>You have no blog posts. <%= link_to 'Create a Blog Post', '/posts/new'%>.</p>
+<% end %>
+</p>

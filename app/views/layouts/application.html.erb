@@ -10,5 +10,7 @@
 
   <body>
     <%= yield %>
+    <hr>
+    <p><%= link_to 'All Bloggers', bloggers_path%> |  <%= link_to 'All Destinations', destinations_path%> | <%= link_to 'All Posts', posts_path%></p>
   </body>
 </html>
